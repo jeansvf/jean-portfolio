@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    background: linear-gradient(to right, #000000, #202020);
+    cursor: none;
+}
+
+#bg-exclusion {
+    background-color: white;
+    background-blend-mode: exclusion;
+  }
+
+/* TODO: check for another way to do this using tailwind */
+.text-gradient-to-right {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #26F2FF, #CD40FF);
+}
