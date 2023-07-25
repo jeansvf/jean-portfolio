@@ -5,19 +5,18 @@
 @tailwind utilities;
 
 :root {
-    background: linear-gradient(to right, #000000, #202020);
     cursor: none;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background: #0B0B0B;
+}
+
+:root::-webkit-scrollbar {
+    display: none;
 }
 
 #bg-exclusion {
     background-color: white;
     background-blend-mode: exclusion;
-  }
-
-/* TODO: check for another way to do this using tailwind */
-.text-gradient-to-right {
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(to right, #26F2FF, #CD40FF);
 }
