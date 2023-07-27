@@ -1,14 +1,27 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion"
+import { useState } from "react"
 
-export default function ProjectCard({ imgSrc }) {
+export default function ProjectCard({ imgSrc, rotation, hoverColor }) {
+    const [isHovering, setIsHovering] = useState(false)
+
     return (
         <motion.div
-        whileInView={{ scale: .3 }}
-        transition={{ delay: 1 }}
-        className="flex flex-col items-center w-[30rem] h-80 rounded-xl bg-gradient-to-br from-[#141414] to-[#0A0A0A]"
-        style={{ boxShadow: "black 0 2px 6px" }}>
-            <div className="w-[91%] h-64 mt-5 border border-white rounded-xl" style={{ background: `url(${imgSrc})` }}></div>
-            <p className="">Placeholder.com</p>
+            initial={{ y: 0, rotate: rotation }}
+            animate={{ y: [-10, 0, -10] }}
+            transition={{ repeat: Infinity, duration: 4, delay: Math.floor(Math.random()*1.5) }}
+            onMouseOver={() =>setIsHovering(true)} onMouseOut={() =>setIsHovering(false)}
+            className="relative flex flex-col items-center min-w-[27rem] max-w-[27rem] h-64 rounded-xl"
+            style={{ boxShadow: "gray 2px 2px 30px" }}
+        >
+            <div className="w-full h-full border-2 border-white rounded-xl" style={{ background: `url(${imgSrc})`, backgroundPosition: "center" }}></div>
+            <AnimatePresence>
+                {isHovering ? (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className={"w-full h-full absolute px-6 py-4 bg-opacity-90 rounded-xl text-black"} style={{ background: hoverColor }}>
+                        <p className="text-2xl pb-2">Jean Portfolio</p>
+                        <p className="text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id elit id nulla vestibulum commodo id quis arcu. Vivamus ultricies id orci necegestas. Aenean tristique hendrerit</p>
+                    </motion.div>
+                ) : null}
+            </AnimatePresence>
         </motion.div>
     )
 }

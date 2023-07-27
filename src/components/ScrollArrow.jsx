@@ -2,47 +2,45 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { BsChevronDown } from "react-icons/bs"
 
-export default function ScrollArrow({ scrollPosition, element }) {
+export default function ScrollArrow({ scrollPosition, maxScrollValue, element }) {
     const [isHoveringArrow, setIsHoveringArrow] = useState(false)
 
-    useEffect(() => console.log(element), [element])
-
     return (
-        <>
-            <AnimatePresence>
-                {scrollPosition < 200 ? (
+        <AnimatePresence>
+            {scrollPosition < maxScrollValue ? (
+                <motion.div
+                    onClick={() => element.current.scrollIntoView({ behavior: 'smooth' })}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ delay: .5 }}
+                    onMouseOver={() => setIsHoveringArrow(true)}
+                    onMouseOut={() => setIsHoveringArrow(false)}
+                    className='absolute bottom-0 left-1/2 -translate-x-1/2 h-[3rem] text-xl mb-2'
+                >
                     <motion.div
-                        onClick={() => element.current.scrollIntoView({ behavior: 'smooth' })}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ delay: .5 }}
-                        className='absolute left-1/2 px-8 pt-8 -translate-x-1/2 bottom-3 text-xl'
-                        onMouseOver={() => setIsHoveringArrow(true)}
-                        onMouseOut={() => setIsHoveringArrow(false)}
+                        initial={{ y: 0 }}
+                        animate={{ y: [-10, 0, -10] }}
+                        transition={{ repeat: Infinity, duration: 1, delay: .5 }}
+                        className='flex flex-col items-center min-h-[2.5rem]'
                     >
-                        <motion.div
-                            initial={{ y: 0 }}
-                            animate={{ y: [-10, 0, -10] }}
-                            transition={{ repeat: Infinity, duration: 1, delay: .5 }}
-                            className='flex flex-col items-center'
-                        >
-                            <AnimatePresence>
-                                {isHoveringArrow ? (
-                                    <motion.p
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    className='text-[#969696] text-sm'>
-                                        My Projects
-                                    </motion.p>
-                                ) : null}
-                            </AnimatePresence>
+                        <AnimatePresence>
+                            {isHoveringArrow ? (
+                                <motion.p
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className='text-[#969696] text-sm'>
+                                    Projects
+                                </motion.p>
+                            ) : null}
+                        </AnimatePresence>
+                        <div className="absolute bottom-0">
                             <BsChevronDown />
-                        </motion.div>
+                        </div>
                     </motion.div>
-                ) : null}
-            </AnimatePresence>
-        </>
+                </motion.div>
+            ) : null}
+        </AnimatePresence>
     )
 }

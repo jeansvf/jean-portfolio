@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import SocialMedia from './components/SocialMedia'
 import ScrollArrow from './components/ScrollArrow'
 import ProjectCard from './components/ProjectCard'
+import MainTitle from './components/MainTitle'
+import ProjectsSection from './components/ProjectsSection'
 
 function App() {
     const [mouseX, setMouseX] = useState(-200)
@@ -17,10 +19,12 @@ function App() {
 
     const firstSectionRef = useRef()
 
+    // TODO: AppContext
+
     useEffect(() => {
         window.addEventListener("scroll", () => {
             setScrollPosition(window.scrollY)
-            window.scrollY > 550 ? setBackgroundColor("#000") : setBackgroundColor("#0B0B0B")
+            window.scrollY > 550 ? setBackgroundColor("#070707") : setBackgroundColor("#0B0B0B")
         })
     }, [])
 
@@ -86,7 +90,7 @@ function App() {
             setBackgroundSize(20)
         }, 500)
 
-        // first maneuver to the top right
+        // first maneuver to top right
         setTimeout(() => {
             lightTopRight()
         }, 1000)
@@ -98,51 +102,11 @@ function App() {
             animate={{ backgroundColor }}
             transition={{ duration: .5 }}
         >
-            <div
-                className="overflow-hidden w-full h-screen pl-36 pt-44 text-white font-righteous z-20"
-                style={{
-                    background: "url(https://static.vecteezy.com/system/resources/previews/021/911/748/large_2x/white-circle-free-png.png)",
-                    backgroundSize: `${backgroundSize}rem`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundClip: "text",
-                    WebkitBackgroundClip: "text",
-                    backgroundPositionX: backgroundX,
-                    backgroundPositionY: backgroundY,
-                }}
-            >
-                <div className="fixed w-8 h-8 z-30 rounded-full pointer-events-none bg-white shadow-black shadow-2xl" style={{ left: mouseX, top: mouseY, translate: "-50% -50%", mixBlendMode: "exclusion" }}></div>
-                
-                <h1 className="text-[5rem] w-fit leading-[1.2] text-transparent">
-                    Welcome! I’m&nbsp;
-                    {backgroundSize > 150 ? (
-                            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .8 }} className='relative' style={{ background: "linear-gradient(to right, #26F2FF, #CD40FF)", backgroundClip: "text", WebkitBackgroundClip: "text" }}>Jean</motion.span>
-                    ) : (
-                        <span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .8 }}>Jean</span>
-                    )},
-                    a<br/>Front-end Web Developer
-                </h1>
-                
-                {backgroundSize > 150 ? (
-                    <motion.h2 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .8 }} className='relative text-[1.3rem] pl-1 text-[#635F5F]'>I don’t know what could be a good subtitle</motion.h2>
-                ) : (
-                    <h2 className='text-[1.3rem] pl-1 text-transparent'>I don’t know what would be a good subtitle</h2>
-                )}
-
-                <SocialMedia backgroundSize={backgroundSize} />
-            </div>
-
-            <div ref={firstSectionRef} className='flex justify-center w-full h-screen'>
-                <motion.h2
-                    initial={{ opacity: 0, y: -12 }}
-                    whileInView={{ opacity: 1, y: -0 }}
-                    transition={{ delay: .3, duration: .6 }}
-                    className='text-[4.5rem] mt-20'
-                >
-                    Projects
-                </motion.h2>
-            </div>
-
-            {backgroundSize > 150 ? <ScrollArrow scrollPosition={scrollPosition} element={firstSectionRef} /> : null}
+            <div className="fixed w-8 h-8 z-30 rounded-full pointer-events-none bg-white shadow-black shadow-2xl" style={{ left: mouseX, top: mouseY, translate: "-50% -50%", mixBlendMode: "exclusion" }}></div>
+            
+            <MainTitle backgroundSize={backgroundSize} backgroundX={backgroundX} backgroundY={backgroundY} mouseX={mouseX} mouseY={mouseY} scrollPosition={scrollPosition} firstSectionRef={firstSectionRef} />
+            
+            <ProjectsSection firstSectionRef={firstSectionRef} scrollPosition={scrollPosition} />
         </motion.main>
     )
 }
