@@ -5,6 +5,8 @@ import ScrollArrow from './components/ScrollArrow'
 import ProjectCard from './components/ProjectCard'
 import MainTitle from './components/MainTitle'
 import ProjectsSection from './components/ProjectsSection'
+import AboutMeSection from './components/AboutMeSection'
+import Footer from './components/Footer'
 
 function App() {
     const [mouseX, setMouseX] = useState(-200)
@@ -17,14 +19,17 @@ function App() {
     const [scrollPosition, setScrollPosition] = useState(0)
     const [backgroundColor, setBackgroundColor] = useState("#0B0B0B")
 
-    const firstSectionRef = useRef()
+    const projectsSectionRef = useRef()
+    const aboutMeSectionRef = useRef()
+    const footerRef = useRef()
 
     // TODO: AppContext
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
             setScrollPosition(window.scrollY)
-            window.scrollY > 550 ? setBackgroundColor("#070707") : setBackgroundColor("#0B0B0B")
+            
+            window.scrollY < 550 ? setBackgroundColor("#0B0B0B") : window.scrollY > 1500 ? setBackgroundColor("#030A0B") : setBackgroundColor("#070707")
         })
     }, [])
 
@@ -102,11 +107,15 @@ function App() {
             animate={{ backgroundColor }}
             transition={{ duration: .5 }}
         >
-            <div className="fixed w-8 h-8 z-30 rounded-full pointer-events-none bg-white shadow-black shadow-2xl" style={{ left: mouseX, top: mouseY, translate: "-50% -50%", mixBlendMode: "exclusion" }}></div>
+            <div className="fixed w-8 h-8 z-50 rounded-full pointer-events-none bg-white shadow-black shadow-2xl" style={{ left: mouseX, top: mouseY, translate: "-50% -50%", mixBlendMode: "exclusion" }}></div>
             
-            <MainTitle backgroundSize={backgroundSize} backgroundX={backgroundX} backgroundY={backgroundY} mouseX={mouseX} mouseY={mouseY} scrollPosition={scrollPosition} firstSectionRef={firstSectionRef} />
+            <MainTitle backgroundSize={backgroundSize} backgroundX={backgroundX} backgroundY={backgroundY} mouseX={mouseX} mouseY={mouseY} scrollPosition={scrollPosition} projectsSectionRef={projectsSectionRef} />
             
-            <ProjectsSection firstSectionRef={firstSectionRef} scrollPosition={scrollPosition} />
+            <ProjectsSection projectsSectionRef={projectsSectionRef} scrollPosition={scrollPosition} aboutMeSectionRef={aboutMeSectionRef} />
+
+            <AboutMeSection aboutMeSectionRef={aboutMeSectionRef} scrollPosition={scrollPosition} footerRef={footerRef} />
+
+            <Footer footerRef={footerRef} />
         </motion.main>
     )
 }

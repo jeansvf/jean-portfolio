@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import SocialMedia from "./SocialMedia";
 import ScrollArrow from "./ScrollArrow";
 
-export default function MainTitle({ backgroundSize, backgroundX, backgroundY, mouseX, mouseY, scrollPosition, firstSectionRef }) {
+export default function MainTitle({ backgroundSize, backgroundX, backgroundY, mouseX, mouseY, scrollPosition, projectsSectionRef }) {
     return (
         <div
             className="overflow-hidden w-full h-screen pl-36 pt-44 text-white font-righteous z-20"
@@ -30,7 +30,7 @@ export default function MainTitle({ backgroundSize, backgroundX, backgroundY, mo
             <SocialMedia backgroundSize={backgroundSize} />
             
             {backgroundSize > 150 ? (
-                <ScrollArrow scrollPosition={scrollPosition} element={firstSectionRef} maxScrollValue={200} />
+                <ScrollArrow scrollPosition={scrollPosition} element={projectsSectionRef} maxScrollValue={200} title="projects" />
             ) : null}
         </div>
     )

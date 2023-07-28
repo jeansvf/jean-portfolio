@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { BsChevronDown } from "react-icons/bs"
 
-export default function ScrollArrow({ scrollPosition, maxScrollValue, element }) {
+export default function ScrollArrow({ scrollPosition, maxScrollValue, element, title }) {
     const [isHoveringArrow, setIsHoveringArrow] = useState(false)
 
     return (
@@ -31,7 +31,7 @@ export default function ScrollArrow({ scrollPosition, maxScrollValue, element })
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 className='text-[#969696] text-sm'>
-                                    Projects
+                                    {title}
                                 </motion.p>
                             ) : null}
                         </AnimatePresence>
