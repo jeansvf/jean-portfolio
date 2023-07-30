@@ -1,25 +1,23 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { BsChevronDown } from "react-icons/bs"
 
-export default function ScrollArrow({ scrollPosition, maxScrollValue, element, title }) {
+export default function ScrollArrow({ element, title }) {
     const [isHoveringArrow, setIsHoveringArrow] = useState(false)
 
     return (
         <AnimatePresence>
-            {scrollPosition < maxScrollValue ? (
-                <motion.div
+                <motion.button
+                    type="button"
                     onClick={() => element.current.scrollIntoView({ behavior: 'smooth' })}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
                     transition={{ delay: .5 }}
                     onMouseOver={() => setIsHoveringArrow(true)}
                     onMouseOut={() => setIsHoveringArrow(false)}
-                    className='absolute bottom-0 left-1/2 -translate-x-1/2 h-[3rem] text-xl mb-2'
+                    className='absolute cursor-none bottom-0 left-1/2 -translate-x-1/2 text-xl font-righteous mb-2'
                 >
                     <motion.div
-                        initial={{ y: 0 }}
                         animate={{ y: [-10, 0, -10] }}
                         transition={{ repeat: Infinity, duration: 1, delay: .5 }}
                         className='flex flex-col items-center min-h-[2.5rem]'
@@ -27,10 +25,11 @@ export default function ScrollArrow({ scrollPosition, maxScrollValue, element, t
                         <AnimatePresence>
                             {isHoveringArrow ? (
                                 <motion.p
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className='text-[#969696] text-sm'>
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    className='text-[#969696] text-sm'
+                                >
                                     {title}
                                 </motion.p>
                             ) : null}
@@ -39,8 +38,7 @@ export default function ScrollArrow({ scrollPosition, maxScrollValue, element, t
                             <BsChevronDown />
                         </div>
                     </motion.div>
-                </motion.div>
-            ) : null}
+                </motion.button>
         </AnimatePresence>
     )
 }

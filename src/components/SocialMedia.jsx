@@ -3,7 +3,7 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 export default function SocialMedia({ backgroundSize }) {
     return (
-        <div className='flex ml-4 h-16 mt-5 '>
+        <div className='flex h-16 ml-4 mt-5'>
             {/* check background size to get the end of the animation */}
             {backgroundSize > 150 ? (
                 <>
@@ -13,7 +13,7 @@ export default function SocialMedia({ backgroundSize }) {
                         rel="noopener noreferrer"
                         transition={{ duration: .1 }}
                         whileHover={{ scale: 1.1, transition: { duration: .1 } }}
-                        className='flex items-center justify-center w-14 h-14 mr-6 bg-white rounded-[1.15rem] text-black text-3xl cursor-none'
+                        className='flex items-center justify-center w-11 h-11 md:w-14 md:h-14 mr-6 bg-white rounded-2xl md:rounded-[1.15rem] text-black text-2xl md:text-3xl cursor-none'
                     >
                         <BsGithub />
                     </motion.a>
@@ -23,7 +23,7 @@ export default function SocialMedia({ backgroundSize }) {
                         rel="noopener noreferrer"
                         transition={{ duration: .1 }}
                         whileHover={{ scale: 1.1, transition: { duration: .1 } }}
-                        className='flex items-center justify-center w-14 h-14 bg-white rounded-[1.15rem] text-black text-3xl cursor-none'
+                        className='flex items-center justify-center w-11 h-11 md:w-14 md:h-14 bg-white rounded-2xl md:rounded-[1.15rem] text-black text-2xl md:text-3xl cursor-none'
                     >
                         <BsLinkedin />
                     </motion.a>
@@ -37,7 +37,7 @@ export default function SocialMedia({ backgroundSize }) {
                         initial={{ rotate: -180, x: -310 }}
                         animate={{ rotate: 360, x: 0 }}
                         transition={{ duration: 1.5, ease: "easeIn", type: "spring", delay: 4.2 }}
-                        className='flex items-center justify-center w-14 h-14 mr-6 bg-white rounded-[1.15rem] text-black text-3xl cursor-none'
+                        className='flex items-center justify-center w-11 h-11 md:w-14 md:h-14 mr-6 bg-white rounded-2xl md:rounded-[1.15rem] text-black text-2xl md:text-3xl cursor-none'
                     >
                         <BsGithub />
                     </motion.a>
@@ -48,7 +48,7 @@ export default function SocialMedia({ backgroundSize }) {
                         initial={{ rotate: -180, x: -310 }}
                         animate={{ rotate: 360, x: 0 }}
                         transition={{ duration: 1.5, ease: "easeIn", type: "spring", delay: 4.2 }}
-                        className='flex items-center justify-center w-14 h-14 bg-white rounded-[1.15rem] text-black text-3xl cursor-none'
+                        className='flex items-center justify-center w-11 h-11 md:w-14 md:h-14 bg-white rounded-2xl md:rounded-[1.15rem] text-black text-2xl md:text-3xl cursor-none'
                     >
                         <BsLinkedin />
                     </motion.a>
