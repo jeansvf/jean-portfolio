@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import ScrollArrow from "./ScrollArrow";
+import { useAppContext } from "../AppContext";
 
-export default function AboutMeSection({ aboutMeSectionRef, scrollPosition, footerRef }) {
+export default function AboutMeSection() {
+    const { aboutMeSectionRef, scrollPosition, footerRef } = useAppContext()
+
     return (
         <div ref={aboutMeSectionRef} className='relative flex flex-col items-center w-full min-h-[100vh] mt-12 font-inter'>
             <div className="relative">
@@ -20,7 +23,7 @@ export default function AboutMeSection({ aboutMeSectionRef, scrollPosition, foot
                 </motion.div>
                 <motion.div initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: .6, duration: .6 }} className="max-xl:w-[30rem] w-[20.5rem] max-sm:w-[21rem] mb-14 text-lg text-center">
                     <p className="mb-4 text-4xl font-semibold">Hobbies 🌟</p>
-                    <p className="text-xl">My hobbies boil down to <p className="inline text-[#FFED4E]">always looking to learn new things</p>, I am a curious guy and I imagine that that’s the reason that programming has fit so well into my life, everyday I try my best to learn new things and become a better software engineer.</p>
+                    <p className="text-xl">My hobbies boil down to <p className="inline text-[#FFED4E]">always looking to learn new things</p>, I am a curious guy when it comes to technology and I imagine that that’s the reason that programming fit so well into my life, everyday I try my best to become a better software engineer.</p>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: .8, duration: .6 }} className="max-xl:w-[30rem] w-[20.5rem] max-sm:w-[21rem] mb-14 text-lg text-center">
                     <p className="mb-4 text-4xl font-semibold">Health 🧠</p>

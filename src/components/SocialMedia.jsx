@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { useAppContext } from "../AppContext";
 
-export default function SocialMedia({ backgroundSize }) {
+export default function SocialMedia() {
+    const { backgroundSize } = useAppContext()
+
     return (
         <div className='flex h-16 ml-4 mt-5'>
-            {/* check background size to get the end of the animation */}
             {backgroundSize > 150 ? (
                 <>
                     <motion.a
-                        href='https://www.linkedin.com/in/jean-silva-192319254/'
+                        href='https://github.com/jeansvf'
                         target="_blank"
                         rel="noopener noreferrer"
                         transition={{ duration: .1 }}
@@ -18,7 +20,7 @@ export default function SocialMedia({ backgroundSize }) {
                         <BsGithub />
                     </motion.a>
                     <motion.a
-                        href='https://github.com/jeansvf'
+                        href='https://www.linkedin.com/in/jean-silva-192319254/'
                         target="_blank"
                         rel="noopener noreferrer"
                         transition={{ duration: .1 }}

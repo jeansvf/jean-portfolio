@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import SocialMedia from "./SocialMedia";
 import ScrollArrow from "./ScrollArrow";
+import { useAppContext } from "../AppContext";
 
-export default function MainTitle({ backgroundSize, backgroundX, backgroundY, scrollPosition, projectsSectionRef }) {
+export default function MainTitle() {
+    const { backgroundSize, backgroundX, backgroundY, scrollPosition, projectsSectionRef,  } = useAppContext()
+
     return (
         <div
             className="overflow-hidden w-full pl-4 sm:pl-8 md:pl-14 lg:pl-24 xl:pl-36 pt-28 max-sm:pt-20 md:pt-36 lg:pt-44 h-screen text-white font-righteous z-20"

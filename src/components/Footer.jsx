@@ -1,7 +1,10 @@
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { BiLinkExternal } from "react-icons/bi";
+import { useAppContext } from "../AppContext";
 
-export default function Footer({ footerRef }) {
+export default function Footer() {
+    const { footerRef } = useAppContext()
+
     return (
         <footer ref={footerRef} className="relative flex justify-start w-full h-48 pl-2.5 sm:pl-14 bg-[#0c0c0c] font-inter">
             <div className="w-[58rem] mt-10">
