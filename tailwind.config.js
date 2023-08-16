@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         'righteous': ['Righteous'],
-        'inter': ['Inter']
+        'inter': ['Inter'],
+        'ubuntu': ['Ubuntu'],
       }
     },
   },

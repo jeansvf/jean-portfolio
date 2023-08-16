@@ -1,18 +1,22 @@
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { AnimatePresence, motion } from "framer-motion"
-import { useState } from "react"
+import { AnimatePresence, animate, motion, useInView } from "framer-motion"
+import { useRef, useState } from "react"
 import { AiFillLock } from "react-icons/ai"
 import { BiLinkExternal } from "react-icons/bi";
 
 export default function ProjectCard({ locked, imgSrc, rotation, hoverColor, title, description, gitLink, linkedinLink }) {
     const [isHovering, setIsHovering] = useState(false)
 
+    const cardRef = useRef(null)
+    const isInView = useInView(cardRef, { once: true })
+
     return (
         <motion.div
             initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 20 }}
             transition={{ duration: 1 }}
             className="sm:min-w-[32rem] sm:max-w-[32rem] max-sm:w-[22rem] mx-6 xl:mb-9 mb-16 xl:mx-28"
+            ref={cardRef}
         >
             <motion.div
                 initial={{ y: 0, rotate: rotation }}
