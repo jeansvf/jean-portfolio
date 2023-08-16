@@ -1,8 +1,10 @@
-import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
+import { GrReactjs } from "react-icons/gr";
 import { AnimatePresence, animate, motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { AiFillLock } from "react-icons/ai"
 import { BiLinkExternal } from "react-icons/bi";
+import { SiFirebase, SiTailwindcss } from "react-icons/si";
 
 export default function ProjectCard({ locked, imgSrc, rotation, hoverColor, title, description, gitLink, websiteLink }) {
     const [isHovering, setIsHovering] = useState(false)
@@ -34,7 +36,13 @@ export default function ProjectCard({ locked, imgSrc, rotation, hoverColor, titl
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className={"w-full h-full absolute px-6 max-sm:py-3 py-4 bg-opacity-90 rounded-xl text-black"} style={{ background: hoverColor }}>
                                     <p className="max-sm:text-xl text-2xl pb-2 font-bold">{title}</p>
                                     <p className="max-sm:text-base text-xl font-semibold">{description}</p>
-                                    <div className="absolute flex items-center text-white right-3 bottom-3">
+                                    <div className="absolute flex items-center justify-end w-full text-white right-3 bottom-3">
+                                        <div className="flex mr-auto ml-9">
+                                            <p className="text-lg">Tech stack:</p>
+                                            <GrReactjs className="text-2xl mr-auto mx-1.5" />
+                                            <SiFirebase className="text-2xl mr-auto mx-1.5" />
+                                            <SiTailwindcss className="text-2xl mr-auto mx-1.5" />
+                                        </div>
                                         <a href={gitLink} target="_blank" rel="noopener noreferrer" className="mr-2 text-2xl">
                                             <BsGithub />
                                         </a>
