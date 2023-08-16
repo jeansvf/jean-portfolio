@@ -27,10 +27,10 @@ export default function ProjectsSection() {
 
             <div className="flex flex-col items-center py-10">
                 <div className="flex max-xl:flex-col max-xl:items-center justify-center w-[70vw] pb-5">
-                    <ProjectCard rotation={-4} imgSrc={focusPlaceImg} title="Focusplace" description="This app was the most fun I've ever had while programming. Almost everyday I keep adding new features and fixes to make the app better. The goal of Focusplace is to improve focus and track your study/work." gitLink="https://github.com/jeansvf/productivity-project" linkedinLink="https://focusplace.io/" hoverColor="#FF7373" />
+                    <ProjectCard rotation={-4} imgSrc={focusPlaceImg} title="Focusplace" description="This app was the most fun I've ever had while programming. Almost everyday I keep adding new features and fixes to make the app better. The goal of Focusplace is to improve focus and track your study/work." gitLink="https://github.com/jeansvf/productivity-project" websiteLink="https://focusplace.co/" hoverColor="#FF7373" />
                     <ProjectCard locked={true} rotation={7} />
                 </div>
-                <ProjectCard rotation={-7} imgSrc={jeanPortfolioImg} title="Jean Portfolio" description="When I first started programming I loved the idea of having my own website to show my work. I created it in a way that look simple but informative." gitLink="https://github.com/jeansvf/jean-portfolio" linkedinLink="https://jeansvf.com/" hoverColor="linear-gradient(to right, #26F2FF, #CD40FF)" />
+                <ProjectCard rotation={-7} imgSrc={jeanPortfolioImg} title="Jean Portfolio" description="When I first started programming I loved the idea of having my own website to show my work. I created it in a way that look simple but informative." gitLink="https://github.com/jeansvf/jean-portfolio" websiteLink="https://jeansvf.com/" hoverColor="linear-gradient(to right, #26F2FF, #CD40FF)" />
             </div>
             
             <ScrollArrow scrollPosition={scrollPosition} maxScrollValue={999999} element={aboutMeSectionRef} title="about me" />

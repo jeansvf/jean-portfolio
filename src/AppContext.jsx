@@ -36,6 +36,10 @@ export default function AppContext({ children }) {
     }
 
     useEffect(() => {
+        console.log(window.innerWidth);
+    })
+
+    useEffect(() => {
         window.addEventListener("scroll", () => {
             setScrollPosition(window.scrollY)
             window.scrollY < 550 ? setBackgroundColor("#0B0B0B") : window.scrollY > 1500 ? setBackgroundColor("#030A0B") : setBackgroundColor("#070707")

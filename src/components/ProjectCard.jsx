@@ -4,7 +4,7 @@ import { useRef, useState } from "react"
 import { AiFillLock } from "react-icons/ai"
 import { BiLinkExternal } from "react-icons/bi";
 
-export default function ProjectCard({ locked, imgSrc, rotation, hoverColor, title, description, gitLink, linkedinLink }) {
+export default function ProjectCard({ locked, imgSrc, rotation, hoverColor, title, description, gitLink, websiteLink }) {
     const [isHovering, setIsHovering] = useState(false)
 
     const cardRef = useRef(null)
@@ -38,7 +38,7 @@ export default function ProjectCard({ locked, imgSrc, rotation, hoverColor, titl
                                         <a href={gitLink} target="_blank" rel="noopener noreferrer" className="mr-2 text-2xl">
                                             <BsGithub />
                                         </a>
-                                        <a href={linkedinLink} target="_blank" rel="noopener noreferrer" className="text-3xl">
+                                        <a href={websiteLink} target="_blank" rel="noopener noreferrer" className="text-3xl">
                                             <BiLinkExternal />
                                         </a>
                                     </div>
