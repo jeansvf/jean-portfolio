@@ -1,6 +1,6 @@
 import { BsGithub } from "react-icons/bs";
 import { GrReactjs } from "react-icons/gr";
-import { AnimatePresence, animate, motion, useInView } from "framer-motion"
+import { AnimatePresence, motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { AiFillLock } from "react-icons/ai"
 import { BiLinkExternal } from "react-icons/bi";
@@ -17,7 +17,7 @@ export default function ProjectCard({ locked, imgSrc, rotation, hoverColor, titl
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 20 }}
             transition={{ duration: 1 }}
-            className="sm:min-w-[32rem] sm:max-w-[32rem] max-sm:w-[22rem] mx-6 xl:mb-9 mb-16 xl:mx-28"
+            className="sm:min-w-[32rem] sm:max-w-[32rem] max-sm:w-[21rem] mx-6 xl:mb-9 mb-16 xl:mx-28"
             ref={cardRef}
         >
             <motion.div
@@ -30,12 +30,12 @@ export default function ProjectCard({ locked, imgSrc, rotation, hoverColor, titl
             >
                 {!locked ? (
                     <>
-                        <div className="w-full h-full border-2 border-white rounded-xl" style={{ background: `url(${imgSrc})`, backgroundSize: "cover" }}></div>
+                        <div className="w-full h-full border-2 border-white rounded-xl" style={{ background: `url(${imgSrc})`, backgroundSize: "cover", backgroundPosition: "center" }}></div>
                         <AnimatePresence>
                             {isHovering ? (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className={"w-full h-full absolute px-6 max-sm:py-3 py-4 bg-opacity-90 rounded-xl text-black"} style={{ background: hoverColor }}>
                                     <p className="max-sm:text-xl text-2xl pb-2 font-bold">{title}</p>
-                                    <p className="max-sm:text-base text-xl font-semibold">{description}</p>
+                                    <p className="h-[67%] overflow-auto max-sm:text-base text-xl font-semibold">{description}</p>
                                     <div className="absolute flex items-center justify-end w-full text-white right-3 bottom-3">
                                         <div className="flex mr-auto ml-9">
                                             <p className="text-lg">Tech stack:</p>

@@ -43,10 +43,6 @@ export default function AppContext({ children }) {
     }, [])
 
     useEffect(() => {
-        console.log(backgroundSize);
-    }, [backgroundSize])
-
-    useEffect(() => {
         document.addEventListener("mousemove", (event) => {
             setMouseX(event.clientX)
             setMouseY(event.clientY)
