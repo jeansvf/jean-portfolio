@@ -15,7 +15,7 @@ export default function SocialMedia() {
                         rel="noopener noreferrer"
                         transition={{ duration: .1 }}
                         whileHover={{ scale: 1.1, transition: { duration: .1 } }}
-                        className='flex items-center justify-center max-sm:w-7 max-sm:h-7 mr-6 bg-white rounded-2xl max-sm:rounded-lg md:rounded-[1.15rem] text-black text-2xl md:text-3xl max-sm:text-xl cursor-none max-md:w-[3rem] max-md:h-[3rem] max-lg:w-14 max-lg:h-14 lg:w-14 lg:h-14'
+                        className='flex items-center justify-center max-sm:w-10 max-sm:h-10 mr-6 bg-white rounded-2xl max-sm:rounded-xl md:rounded-[1.15rem] text-black text-2xl md:text-3xl cursor-none max-md:w-[3rem] max-md:h-[3rem] max-lg:w-14 max-lg:h-14 lg:w-14 lg:h-14'
                     >
                         <BsGithub />
                     </motion.a>
@@ -25,7 +25,7 @@ export default function SocialMedia() {
                         rel="noopener noreferrer"
                         transition={{ duration: .1 }}
                         whileHover={{ scale: 1.1, transition: { duration: .1 } }}
-                        className='flex items-center justify-center max-sm:w-7 max-sm:h-7 bg-white rounded-2xl max-sm:rounded-lg md:rounded-[1.15rem] text-black text-2xl md:text-3xl max-sm:text-xl cursor-none max-md:w-[3rem] max-md:h-[3rem] max-lg:w-14 max-lg:h-14 lg:w-14 lg:h-14'
+                        className='flex items-center justify-center max-sm:w-10 max-sm:h-10 bg-white rounded-2xl max-sm:rounded-xl md:rounded-[1.15rem] text-black text-2xl md:text-3xl cursor-none max-md:w-[3rem] max-md:h-[3rem] max-lg:w-14 max-lg:h-14 lg:w-14 lg:h-14'
                     >
                         <BsLinkedin />
                     </motion.a>
@@ -39,7 +39,7 @@ export default function SocialMedia() {
                         initial={{ rotate: -180, x: -310 }}
                         animate={{ rotate: 360, x: 0 }}
                         transition={{ duration: 1.5, ease: "easeIn", type: "spring", delay: 4.2 }}
-                        className='flex items-center justify-center max-sm:w-7 max-sm:h-7 w-11 h-11 md:w-14 md:h-14 mr-6 bg-white rounded-2xl max-sm:rounded-lg md:rounded-[1.15rem] text-black text-2xl md:text-3xl max-sm:text-xl cursor-none max-md:w-[3rem] max-md:h-[3rem] max-lg:w-14 max-lg:h-14 lg:w-14 lg:h-14'
+                        className='flex items-center justify-center max-sm:w-10 max-sm:h-10 w-11 h-11 md:w-14 md:h-14 mr-6 bg-white rounded-2xl max-sm:rounded-xl md:rounded-[1.15rem] text-black text-2xl md:text-3xl cursor-none max-md:w-[3rem] max-md:h-[3rem] max-lg:w-14 max-lg:h-14 lg:w-14 lg:h-14'
                     >
                         <BsGithub />
                     </motion.a>
@@ -50,7 +50,7 @@ export default function SocialMedia() {
                         initial={{ rotate: -180, x: -310 }}
                         animate={{ rotate: 360, x: 0 }}
                         transition={{ duration: 1.5, ease: "easeIn", type: "spring", delay: 4.2 }}
-                        className='flex items-center justify-center max-sm:w-7 max-sm:h-7 w-11 h-11 md:w-14 md:h-14 bg-white rounded-2xl max-sm:rounded-lg md:rounded-[1.15rem] text-black text-2xl md:text-3xl max-sm:text-xl cursor-none max-md:w-[3rem] max-md:h-[3rem] max-lg:w-14 max-lg:h-14 lg:w-14 lg:h-14'
+                        className='flex items-center justify-center max-sm:w-10 max-sm:h-10 w-11 h-11 md:w-14 md:h-14 bg-white rounded-2xl max-sm:rounded-xl md:rounded-[1.15rem] text-black text-2xl md:text-3xl cursor-none max-md:w-[3rem] max-md:h-[3rem] max-lg:w-14 max-lg:h-14 lg:w-14 lg:h-14'
                     >
                         <BsLinkedin />
                     </motion.a>

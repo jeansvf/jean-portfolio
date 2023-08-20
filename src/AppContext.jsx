@@ -9,7 +9,7 @@ export default function AppContext({ children }) {
 
     const [backgroundSize, setBackgroundSize] = useState(0)
     const [backgroundX, setBackgroundX] = useState(0)
-    const [backgroundY, setBackgroundY] = useState(300)
+    const [backgroundY, setBackgroundY] = useState(window.innerWidth > 600 ? 14 : 40)
 
     const [scrollPosition, setScrollPosition] = useState(0)
     const [backgroundColor, setBackgroundColor] = useState("#0B0B0B")
@@ -19,7 +19,7 @@ export default function AppContext({ children }) {
     const footerRef = useRef()
 
     let countX = useMotionValue(0)
-    let countY = useMotionValue(300)
+    let countY = useMotionValue(window.innerWidth > 600 ? 14 : 40)
     let countSize = useMotionValue(20)
 
     const value = {
@@ -36,15 +36,15 @@ export default function AppContext({ children }) {
     }
 
     useEffect(() => {
-        console.log(window.innerWidth);
-    })
-
-    useEffect(() => {
         window.addEventListener("scroll", () => {
             setScrollPosition(window.scrollY)
             window.scrollY < 550 ? setBackgroundColor("#0B0B0B") : window.scrollY > 1500 ? setBackgroundColor("#030A0B") : setBackgroundColor("#070707")
         })
     }, [])
+
+    useEffect(() => {
+        console.log(backgroundSize);
+    }, [backgroundSize])
 
     useEffect(() => {
         document.addEventListener("mousemove", (event) => {
@@ -55,7 +55,7 @@ export default function AppContext({ children }) {
 
         // turn the flashlight on
         setTimeout(() => {
-            setBackgroundSize(20)
+            setBackgroundSize(window.innerWidth > 600 ? 16.6 : 25)
         }, 500)
 
         // first maneuver to top right
@@ -65,7 +65,7 @@ export default function AppContext({ children }) {
     }, [])
     
     const lightTopRight = () => {
-        animate(countX, 1000, {
+        animate(countX, 57.4, {
             duration: 1.1,
             onUpdate(latest) {
                 setBackgroundX(latest)
@@ -75,7 +75,7 @@ export default function AppContext({ children }) {
             }
         })
         
-        animate(countY, 0, {
+        animate(countY, (window.innerWidth > 600 ? 0 : 10), {
             duration: 1,
             onUpdate(latest) {
                 setBackgroundY(latest)
@@ -84,7 +84,7 @@ export default function AppContext({ children }) {
     }
 
     const lightLeft = () => {
-        animate(countX, -180, {
+        animate(countX, -10.3, {
             duration: 1,
             onUpdate(latest) {
                 setBackgroundX(latest)
@@ -94,7 +94,7 @@ export default function AppContext({ children }) {
             } 
         })
         
-        animate(countY, 80, {
+        animate(countY, (window.innerWidth > 600 ? .2 : 24), {
             duration: 1,
             onUpdate(latest) {
                 setBackgroundY(latest)
@@ -104,7 +104,7 @@ export default function AppContext({ children }) {
     
     const lightWelcome = () => {
         setTimeout(() => {
-            animate(countX, 120, {
+            animate(countX, 7, {
                 duration: .7,
                 onUpdate(latest) {
                     setBackgroundX(latest)
@@ -114,7 +114,7 @@ export default function AppContext({ children }) {
                 }
             })
             
-            animate(countY, 50, {
+            animate(countY, window.innerWidth > 600 ? 2.8 : 16, {
                 duration: .6,
                 onUpdate(latest) {
                     setBackgroundY(latest)
@@ -125,21 +125,21 @@ export default function AppContext({ children }) {
 
     const lightExplosion = () => {
         setTimeout(() => {
-            animate(countSize, 160, {
+            animate((window.innerWidth > 600 ? countSize : 25), (window.innerWidth > 600 ? 200 : 230), {
                 duration: 1,
                 onUpdate(latest) {
                     setBackgroundSize(latest)
                 }
             })
 
-            animate(countX, -800, {
+            animate(countX, -80, {
                 duration: 1.2,
                 onUpdate(latest) {
                     setBackgroundX(latest)
                 }
             })
 
-            animate(countY, -800, {
+            animate(countY, -50, {
                 duration: 1.2,
                 onUpdate(latest) {
                     setBackgroundY(latest)
